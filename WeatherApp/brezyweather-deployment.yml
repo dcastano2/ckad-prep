@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: brezyweather
+  name: brezyweather-deployment
+spec:
+  replicas: 2 
+  selector:
+    matchLabels:
+      app: brezyweather
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: brezyweather
+    spec:
+      containers:
+      - image: codewithpraveen/labs-k8s-brezyapp:1.0.0
+        name: brezyweather
+        resources: {}
+        ports:
+        - containerPort: 80
+        resources: 
+          limits: 
+            memory: 128Mi
+            cpu: 500m
+status: {}
